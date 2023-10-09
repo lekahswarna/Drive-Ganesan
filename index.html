@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <h1>File Upload</h1>
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <input type="file" name="img">
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if c == "true" %}
+        <p>Upload successful!</p>
+        <p>File Name: {{ t }}</p>
+        <p>File Size: {{ size }} MB</p>
+    {% elif c == "false" %}
+        <p>Upload failed!</p>
+    {% endif %}
+
+    <h2>API</h2>
+    <form method="POST" action="/api" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <h2>API 2</h2>
+    <form method="POST" action="/api2" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="text" name="q" placeholder="Enter filename">
+        <input type="submit" value="Upload">
+    </form>
+
+    <h2>ShareX</h2>
+    <form method="POST" action="/sharex" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <h2>Direct Upload</h2>
+    <form method="POST" action="/direct" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
